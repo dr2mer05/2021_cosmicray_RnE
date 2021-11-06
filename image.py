@@ -1,10 +1,12 @@
+import matplotlib
 import matplotlib.pyplot as plt
 from openpyxl import load_workbook
 
+matplotlib.use("Agg")
 load_wb = load_workbook("C:/Users/dr2mer05/Desktop/sample_data.xlsx", data_only=True)
 load_ws = load_wb['Sheet1']
 
-for i in range(2226, 10001):
+for i in range(1, 10001):
     s = 102*(i-1)+8
     f = 102*i
     list1 = []
