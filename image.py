@@ -2,8 +2,18 @@ import matplotlib
 import matplotlib.pyplot as plt
 from openpyxl import load_workbook
 
+read_dir_path = ''
+read_file_name =''
+read_file_type = 'xlsx'
+
+save_dir_path=''
+save_file_name=''
+save_file_type='png'
+
+read_file_path = '{}/{}.{}'.format(dir_path, file_name, file_type)
+
 matplotlib.use("Agg")
-load_wb = load_workbook("C:/Users/dr2mer05/Desktop/sample_data.xlsx", data_only=True)
+load_wb = load_workbook(read_file_path, data_only=True)
 load_ws = load_wb['Sheet1']
 
 for i in range(1, 10001):
@@ -33,5 +43,6 @@ for i in range(1, 10001):
     plt.ylabel("ch2")
 
     plt.tight_layout()
-    plt.savefig('c:/Users/dr2mer05/Desktop/sample_data/sample_data%d.png' % i)
+    save_file_path = '{}/{}%d.{}'.format(save_dir_path, save_file_name, i, save_file_type)
+    plt.savefig(save_file_path)
     plt.close()
